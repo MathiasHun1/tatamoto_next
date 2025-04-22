@@ -1,0 +1,21 @@
+.app {
+  height: 100%;
+  padding-top: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  color: white;
+  font-size: var(--fs-S);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  line-height: 2;
+  font-weight: 400;
+  text-align: center;
+
+  & span {
+    display: block;
+  }
+}

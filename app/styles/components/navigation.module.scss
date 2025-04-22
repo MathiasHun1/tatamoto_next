@@ -1,0 +1,25 @@
+.nav {
+  background-color: black;
+  height: min-content;
+  padding-right: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo_wrapper {
+  width: 80px;
+}
+
+.section_left {
+  background-color: hsl(225 73.1% 46.7%);
+  padding-left: 1rem;
+  padding-right: 0.5rem;
+}
+
+.menu_wrapper {
+  width: 26px;
+}
+
+.section_right {
+}
