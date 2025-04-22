@@ -32,7 +32,7 @@ export default function RootLayout({
   return (
     <html lang="hu">
       <body
-        className={`body ${montserrat.variable} ${geistSans.variable} ${geistMono.variable}`}
+        className={`${styles.body} ${montserrat.variable} ${geistSans.variable} ${geistMono.variable}`}
       >
         <Nav />
         <main className={styles.main}>
