@@ -19,6 +19,7 @@ const geistMono = Geist_Mono({
 
 const montserrat = Montserrat({
   variable: '--font-montserrat',
+  subsets: ['latin'],
 });
 
 export const metadata: Metadata = {};
@@ -31,7 +32,7 @@ export default function RootLayout({
   return (
     <html lang="hu">
       <body
-        className={`${montserrat.variable} ${geistSans.variable} ${geistMono.variable}`}
+        className={`body ${montserrat.variable} ${geistSans.variable} ${geistMono.variable}`}
       >
         <Nav />
         <main className={styles.main}>
