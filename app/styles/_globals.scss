@@ -4,4 +4,16 @@ html {
 
 body {
   height: 100%;
+  font-size: 1rem;
+}
+
+// Utilities
+.title {
+  font-size: var(--fs-L);
+  font-weight: 600;
+}
+
+.body_text {
+  font-size: var(--fs-M);
+  font-weight: 400;
 }

@@ -1,0 +1,33 @@
+@use '../mixins' as *;
+
+.cont {
+  @include wrapper;
+  padding-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.list {
+  margin-top: 0.325rem;
+  padding-left: 10px;
+}
+
+.link {
+  color: hsl(var(--clr-blue-800));
+}
+
+.link:visited {
+  color: hsl(var(--clr-blue-800));
+}
+
+.map_cont {
+  width: 50%;
+  margin-top: 1rem;
+}
+
+.map {
+  border-radius: 10px;
+  width: 100%;
+  aspect-ratio: 1;
+}

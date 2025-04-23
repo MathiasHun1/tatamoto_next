@@ -1,25 +1,16 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono, Montserrat } from 'next/font/google';
+import { Montserrat } from 'next/font/google';
 import './app.scss';
 import Image from 'next/image';
 import bgImg from '@/public/images/muhely-1.jpeg';
 import styles from '@/app/styles/layouts/appLayout.module.scss';
 
-import Nav from './ui/navigation';
-
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-});
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-});
+import Header from './ui/header';
 
 const montserrat = Montserrat({
   variable: '--font-montserrat',
   subsets: ['latin'],
+  weight: ['400', '500', '700'],
 });
 
 export const metadata: Metadata = {};
@@ -31,10 +22,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="hu">
-      <body
-        className={`${styles.body} ${montserrat.variable} ${geistSans.variable} ${geistMono.variable}`}
-      >
-        <Nav />
+      <body className={`${styles.body} ${montserrat.variable}`}>
+        <Header />
+
         <main className={styles.main}>
           <div className={styles.bg_wrapper}>
             <Image src={bgImg} alt="" height={700} />

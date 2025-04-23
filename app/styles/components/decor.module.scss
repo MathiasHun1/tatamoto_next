@@ -1,0 +1,15 @@
+.decor_cont {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.decor_text {
+  font-size: var(--fs-XL);
+}
+
+.decor_line {
+  height: 1px;
+  width: 100%;
+  background-color: white;
+}
