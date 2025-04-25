@@ -2,13 +2,10 @@ import { NextRequest, NextResponse } from 'next/server';
 import Day from '@/models/Day';
 import connectToDb from '@/lib/mongodb';
 
-type Params = {
-  params: {
-    openingday: string;
-  };
-};
-
-export async function PUT(request: NextRequest, { params }: Params) {
+export async function PUT(
+  request: NextRequest,
+  { params }: { params: Promise<{ openingday: string }> }
+) {
   try {
     await connectToDb();
     const { openingday } = await params;
