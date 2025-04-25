@@ -6,6 +6,7 @@ import bgImg from '@/public/images/muhely-1.jpeg';
 import styles from '@/app/styles/layouts/appLayout.module.scss';
 
 import Header from './ui/header';
+import Promotion from './ui/promotion';
 
 const montserrat = Montserrat({
   variable: '--font-montserrat',
@@ -31,6 +32,8 @@ export default function RootLayout({
           </div>
           {children}
         </main>
+
+        <Promotion />
       </body>
     </html>
   );
