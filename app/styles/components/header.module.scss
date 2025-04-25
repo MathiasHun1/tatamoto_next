@@ -5,6 +5,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  overflow: hidden;
 }
 
 .logo_wrapper {
@@ -12,10 +13,28 @@
 }
 
 .section_left {
-  // background-color: hsl(225 73.1% 46.7%);
   background-color: hsla(var(--clr-blue-500));
   padding-left: 1rem;
   padding-right: 0.5rem;
+  position: relative;
+  z-index: 10;
+
+  &::after {
+    content: '';
+    position: absolute;
+    background-color: inherit;
+    width: 50%;
+    height: 200%;
+    right: 5%;
+    bottom: 0;
+    transform: rotate(30deg);
+    transform-origin: bottom left;
+    z-index: -10;
+  }
+}
+
+.logo {
+  transform: translateX(10px);
 }
 
 .menu_wrapper {

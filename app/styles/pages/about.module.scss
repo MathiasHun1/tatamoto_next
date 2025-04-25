@@ -5,7 +5,11 @@
   padding-top: 3rem;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.35rem;
+}
+
+.wrapper h1,
+.wrapper h2 {
 }
 
 .text:last-of-type {
@@ -14,11 +18,11 @@
 
 .accent {
   font-style: italic;
-  text-decoration: underline;
 }
 
 .scooter_img {
   margin-top: 0.5rem;
+  border-radius: 8px;
 }
 
 .footer {

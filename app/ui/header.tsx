@@ -10,7 +10,13 @@ const Header = () => {
     <header className={styles.nav}>
       <div className={styles.section_left}>
         <Link href="/" className={styles.logo_wrapper}>
-          <Image src={logo} alt="" width={80} height={80} />
+          <Image
+            src={logo}
+            alt=""
+            width={80}
+            height={80}
+            className={styles.logo}
+          />
         </Link>
       </div>
 

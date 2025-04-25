@@ -7,13 +7,18 @@ body {
   font-size: 1rem;
 }
 
+a {
+  color: hsl(var(--clr-text));
+}
+
 // Utilities
 .title {
   font-size: var(--fs-L);
   font-weight: 600;
+  color: hsl(213.67, 92.78%, 61.96%);
 }
 
 .body_text {
   font-size: var(--fs-M);
-  font-weight: 400;
+  font-weight: 500;
 }

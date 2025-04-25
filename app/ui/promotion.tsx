@@ -5,6 +5,8 @@ import { useEffect, useState } from 'react';
 import promotionService from '@/services/promotionService';
 import closeSVG from '@/public/images/xmark-solid.svg';
 import attentionSVG from '@/public/images/loudspeaker-309554.svg';
+import { motion } from 'framer-motion';
+
 import Image from 'next/image';
 
 const Promotion = () => {
@@ -28,7 +30,11 @@ const Promotion = () => {
   }
 
   return (
-    <div className={styles.wrapper}>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      className={styles.wrapper}
+    >
       <div className={styles.card}>
         <button className={styles.close_btn} onClick={() => setIsOn(false)}>
           <Image src={closeSVG} alt="" width={36} height={36} />
@@ -39,9 +45,9 @@ const Promotion = () => {
           width={100}
           className={styles.attention_logo}
         />
-        <p>{text}</p>
+        <p className={styles.promo_text}>{text}</p>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

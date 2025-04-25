@@ -33,11 +33,10 @@ const Page = () => {
           mi a gondod vele, én felmérem, majd írok egy munkalapot amin a várható
           költségek is szerepelnek, így nem ér meglepetés a számla elkészülte
           után. A munkafolyamatokról igény szerint fotó vagy videó dokumentáció
-          készül. Ittléte alatt a motorod fedett helyen van.
+          készül. Ittléte alatt a motorod fedett helyen van. Köszönöm hogy
+          megtiszelsz a bizalmaddal!
         </p>
-        <p className={styles.thanks}>
-          Köszönöm hogy megtiszelsz a bizalmaddal!
-        </p>
+        <p className={styles.thanks}></p>
       </div>
 
       <div>
