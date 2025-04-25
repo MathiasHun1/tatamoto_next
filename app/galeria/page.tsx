@@ -1,7 +1,7 @@
-import React from 'react';
+'use client';
 
 const Page = () => {
-  return <div>galeria</div>;
+  return <div></div>;
 };
 
 export default Page;

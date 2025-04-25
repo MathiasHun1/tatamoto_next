@@ -1,0 +1,83 @@
+@use '../mixins' as *;
+
+.wrapper {
+  @include wrapper;
+  padding-top: 2rem;
+  display: grid;
+  justify-items: center;
+  gap: 6rem;
+}
+
+.form {
+  width: fit-content;
+  background-color: rgb(80, 80, 80);
+  padding: 20px;
+  position: relative;
+
+  & input {
+    min-width: none;
+    width: 4rem;
+  }
+  & select {
+    padding-block: 4px;
+  }
+}
+
+.hour_input__disabled {
+  background-color: hsl(var(--clr-red-500));
+}
+
+.input_flex_cont {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.checkbox_wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.buttons_cont {
+  display: flex;
+  gap: 4px;
+  width: 80%;
+  margin-inline: auto;
+  & > * {
+    flex: 1;
+  }
+
+  & > button {
+    border: none;
+    cursor: pointer;
+    padding-block: 4px;
+  }
+
+  & > button:hover {
+    opacity: 0.8;
+  }
+}
+
+.submit_btn {
+  background-color: hsl(var(--clr-green-500));
+}
+
+.logout_btn {
+  background-color: hsl(var(--clr-red-500));
+}
+
+.error_msg,
+.success_msg {
+  font-weight: 600;
+  position: absolute;
+  bottom: -2rem;
+  left: 0;
+}
+
+.error_msg {
+  color: hsl(var(--clr-red-500));
+}
+
+.success_msg {
+  color: hsl(var(--clr-green-500));
+}
