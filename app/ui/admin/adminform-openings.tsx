@@ -106,7 +106,6 @@ const AdminForm_openings = ({ logOut }: { logOut: () => void }) => {
           />
         </div>
       </div>
-      <br />
       <div className={styles.buttons_cont}>
         <button type="submit" className={styles.submit_btn}>
           Mentés

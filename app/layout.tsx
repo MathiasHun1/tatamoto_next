@@ -7,6 +7,7 @@ import styles from '@/app/styles/layouts/appLayout.module.scss';
 
 import Header from './ui/header';
 import Promotion from './ui/promotion';
+import Vacation from './ui/vacation';
 
 const montserrat = Montserrat({
   variable: '--font-montserrat',
@@ -34,6 +35,7 @@ export default function RootLayout({
         </main>
 
         <Promotion />
+        <Vacation />
       </body>
     </html>
   );

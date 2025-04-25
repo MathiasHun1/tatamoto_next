@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseURL = '/api/promotions';
+const baseURL = '/api/vacations';
 
 const getData = async () => {
   try {
@@ -12,11 +12,11 @@ const getData = async () => {
 };
 
 type Credentials = {
-  onPromotion: boolean;
+  onVacation: boolean;
   text: string;
 };
 
-const setPromotion = async (credentials: Credentials) => {
+const setVacation = async (credentials: Credentials) => {
   try {
     const response = await axios.post(baseURL, credentials);
     return response.data;
@@ -25,4 +25,4 @@ const setPromotion = async (credentials: Credentials) => {
   }
 };
 
-export default { getData, setPromotion };
+export default { getData, setVacation };

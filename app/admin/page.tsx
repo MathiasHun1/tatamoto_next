@@ -4,8 +4,8 @@ import styles from '@/app/styles/pages/admin.module.scss';
 import React, { useState } from 'react';
 // import loginService from '../../services/login';
 import AdminForm_openings from '@/app/ui/admin/adminform-openings';
-// import AdminForm_vacation from '../AdminForm_vacation';
-// import AdminForm_promotion from '../AdminForm_promotion';
+import AdminForm_promotion from '../ui/admin/adminform-promotions';
+import AdminForm_vacation from '../ui/admin/adminform-vacation';
 
 const Admin = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
@@ -74,17 +74,9 @@ const Admin = () => {
 
   return (
     <div className={styles.wrapper}>
-      <div className="flex flex-col items-center ">
-        <AdminForm_openings logOut={logOut} />
-      </div>
-
-      {/* <div className="flex flex-col items-center">
-        <AdminForm_vacation logOut={logOut} />
-      </div>
-
-      <div className="flex flex-col items-center">
-        <AdminForm_promotion logOut={logOut} />
-      </div> */}
+      <AdminForm_openings logOut={logOut} />
+      <AdminForm_promotion logOut={logOut} />
+      <AdminForm_vacation logOut={logOut} />
     </div>
   );
 };

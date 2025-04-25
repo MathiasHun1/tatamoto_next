@@ -25,8 +25,8 @@ export async function POST(request: Request) {
 
   try {
     await connectToDb();
-    await Promotion.deleteMany({});
 
+    await Promotion.deleteMany({});
     const createdPromoObj = new Promotion({ onPromotion, text });
     const result = await createdPromoObj.save();
 

@@ -5,14 +5,19 @@
   padding-top: 2rem;
   display: grid;
   justify-items: center;
-  gap: 6rem;
+  gap: 4rem;
 }
 
 .form {
-  width: fit-content;
+  width: 80%;
   background-color: rgb(80, 80, 80);
   padding: 20px;
+  padding-bottom: 2rem;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  border-radius: 12px;
 
   & input {
     min-width: none;
@@ -40,9 +45,10 @@
 
 .buttons_cont {
   display: flex;
+  justify-content: space-between;
   gap: 4px;
-  width: 80%;
-  margin-inline: auto;
+  width: 100%;
+  margin-top: 1rem;
   & > * {
     flex: 1;
   }
@@ -80,4 +86,9 @@
 
 .success_msg {
   color: hsl(var(--clr-green-500));
+}
+
+.textarea {
+  min-height: 15ch;
+  padding: 0.5rem 1rem;
 }

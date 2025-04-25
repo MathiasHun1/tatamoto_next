@@ -2,20 +2,20 @@
 
 import styles from '@/app/styles/components/popoups.module.scss';
 import { useEffect, useState } from 'react';
-import promotionService from '@/services/promotionService';
 import closeSVG from '@/public/images/xmark-solid.svg';
-import attentionSVG from '@/public/images/loudspeaker-309554.svg';
+import vacationImg from '@/public/images/vacation.jpg';
 import Image from 'next/image';
+import vacationService from '@/services/vacationService';
 
-const Promotion = () => {
+const Vacation = () => {
   const [isOn, setIsOn] = useState(false);
   const [text, setText] = useState('');
 
   useEffect(() => {
     try {
-      promotionService.getData().then((response) => {
-        const { onPromotion, text } = response;
-        setIsOn(onPromotion);
+      vacationService.getData().then((response) => {
+        const { onVacation, text } = response;
+        setIsOn(onVacation);
         setText(text);
       });
     } catch (error) {
@@ -24,7 +24,7 @@ const Promotion = () => {
   }, []);
 
   if (!isOn) {
-    return null;
+    return <div></div>;
   }
 
   return (
@@ -33,16 +33,19 @@ const Promotion = () => {
         <button className={styles.close_btn} onClick={() => setIsOn(false)}>
           <Image src={closeSVG} alt="" width={36} height={36} />
         </button>
-        <Image
-          src={attentionSVG}
-          alt=""
-          width={100}
-          className={styles.attention_logo}
-        />
-        <p>{text}</p>
+        <h2 className={styles.title}>Tisztelt Ügyfeleim!</h2>
+        <p className={styles.vacations_text}>{text}</p>
+        <div className={styles.vacation_img}>
+          <Image
+            src={vacationImg}
+            alt=""
+            width={500}
+            className={styles.attention_logo}
+          />
+        </div>
       </div>
     </div>
   );
 };
 
-export default Promotion;
+export default Vacation;
