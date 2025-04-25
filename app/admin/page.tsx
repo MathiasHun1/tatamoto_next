@@ -10,6 +10,7 @@ import AdminForm_openings from '@/app/ui/admin/adminform-openings';
 const Admin = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [passText, setPassText] = useState('');
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [errorMessageText, setErrorMessageText] = useState('');
 
   const handlePassInputChange = (e: React.SyntheticEvent) => {
