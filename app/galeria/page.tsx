@@ -50,19 +50,26 @@ const motorAll = [
 
 import ImageCard from '../ui/imageCard';
 import React, { useEffect, useState } from 'react';
-import { createPortal } from 'react-dom';
+import { StaticImageData } from 'next/image';
+import Image from 'next/image';
+import closeSvg from '@/public/images/xmark-solid.svg';
+
+import { Virtual } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/virtual';
 
 const Gallery = () => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [zoomOpenGarage, setZoomOpenGarage] = useState(false);
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [zoomOpenRefs, setZoomOpenRefs] = useState(false);
-  const [mounted, setMounted] = useState(false);
+  const [carouselOpen, setCarouselOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [openedBlock, setOpenedBlock] = useState<
+    'garage' | 'references' | null
+  >(null);
 
   useEffect(() => {
-    setMounted(true);
-  }, []);
+    console.log(openedBlock);
+    console.log(openedBlock);
+  }, [openedBlock]);
 
   useEffect(() => {
     console.log(activeIndex);
@@ -70,8 +77,20 @@ const Gallery = () => {
 
   const onClick = (e: React.SyntheticEvent) => {
     const target = e.currentTarget as HTMLDivElement;
-    // setZoomOpen(true);
+    const index = target.dataset.index;
+    const type = target.dataset.type;
+
+    if (!type && !index) {
+      throw new Error('Missing image type or index');
+    }
+
+    if (type !== 'garage' && type !== 'references') {
+      throw new Error('Invalid image type');
+    }
+
+    setOpenedBlock(type);
     setActiveIndex(Number(target.dataset.index));
+    setCarouselOpen(true);
   };
 
   return (
@@ -80,7 +99,13 @@ const Gallery = () => {
         <h2 className={`title ${styles.section_title}`}>A Műhely</h2>
         <div className={styles.grid_cont}>
           {muhelyAll.map((m, index) => (
-            <ImageCard key={index} index={index} image={m} onClick={onClick} />
+            <ImageCard
+              key={index}
+              index={index}
+              image={m}
+              type="garage"
+              onClick={onClick}
+            />
           ))}
         </div>
       </div>
@@ -89,21 +114,109 @@ const Gallery = () => {
         <h2 className={`title ${styles.section_title}`}>Munkáim</h2>
         <div className={styles.grid_cont}>
           {motorAll.map((m, index) => (
-            <ImageCard key={index} index={index} image={m} onClick={onClick} />
+            <ImageCard
+              key={index}
+              index={index}
+              image={m}
+              type="references"
+              onClick={onClick}
+            />
           ))}
         </div>
       </div>
 
-      {mounted && zoomOpenGarage && createPortal(<ImageModal />, document.body)}
-      {mounted && zoomOpenRefs && createPortal(<ImageModal />, document.body)}
+      {carouselOpen && (
+        <ImageCarousel
+          garageArr={muhelyAll}
+          refsArr={motorAll}
+          openedBlock={openedBlock}
+          activeIndex={activeIndex}
+          setCarouselOpen={setCarouselOpen}
+        />
+      )}
     </div>
   );
 };
 
-const ImageModal = () => {
+const ImageCarousel = ({
+  garageArr,
+  refsArr,
+  openedBlock,
+  activeIndex,
+  setCarouselOpen,
+}: {
+  garageArr: StaticImageData[];
+  refsArr: StaticImageData[];
+  openedBlock: 'garage' | 'references' | null;
+  activeIndex: number | null;
+  setCarouselOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
+  const [currentIndex, setCurrentIndex] = useState<number | null>(null);
+  const [usedImgArray, setUsedImgArray] = useState<StaticImageData[] | null>(
+    null
+  );
+
+  useEffect(() => {
+    setCurrentIndex(activeIndex);
+    setUsedImgArray(openedBlock === 'garage' ? garageArr : refsArr);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    console.log(currentIndex);
+  }, [currentIndex]);
+
+  const hasValidIndex =
+    (usedImgArray && currentIndex) || (usedImgArray && currentIndex === 0);
+
   return (
     <div className={styles.modal_wrapper}>
-      <div className={styles.modal_card}>MODAL</div>
+      <div className={styles.modal_card}>
+        {hasValidIndex && (
+          <>
+            <Image
+              src={closeSvg}
+              alt=""
+              width={50}
+              height={50}
+              className={styles.close_btn}
+              onClick={() => setCarouselOpen(false)}
+            />
+            <Swiper
+              modules={[Virtual]}
+              spaceBetween={50}
+              slidesPerView={1}
+              virtual
+            >
+              {usedImgArray.map((slideContent, index) => (
+                <SwiperSlide key={index} virtualIndex={index}>
+                  <Image
+                    src={slideContent}
+                    alt=""
+                    width={550}
+                    className={styles.picture}
+                  />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+
+            {/* <Image
+              src={rightArrow}
+              alt=""
+              width={50}
+              className={styles.stepper_right}
+              onClick={stepRight}
+            />
+            <Image
+              src={leftArrow}
+              alt=""
+              width={50}
+              className={styles.stepper_left}
+              onClick={stepLeft}
+            /> */}
+          </>
+        )}
+      </div>
     </div>
   );
 };

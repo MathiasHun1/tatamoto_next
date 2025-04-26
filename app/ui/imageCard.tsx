@@ -5,14 +5,21 @@ import React from 'react';
 function ImageCard({
   image,
   index,
+  type,
   onClick,
 }: {
   image: StaticImageData;
   index: number;
+  type: 'garage' | 'references';
   onClick: (e: React.SyntheticEvent) => void;
 }) {
   return (
-    <div className={styles.card} data-index={index} onClick={onClick}>
+    <div
+      className={styles.card}
+      data-index={index}
+      data-type={type}
+      onClick={onClick}
+    >
       <Image src={image} alt="" width={80} className={styles.image} />
     </div>
   );
