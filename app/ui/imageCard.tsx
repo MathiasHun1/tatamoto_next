@@ -20,7 +20,7 @@ function ImageCard({
       data-type={type}
       onClick={onClick}
     >
-      <Image src={image} alt="" width={80} className={styles.image} />
+      <Image src={image} alt="" width={450} className={styles.image} />
     </div>
   );
 }

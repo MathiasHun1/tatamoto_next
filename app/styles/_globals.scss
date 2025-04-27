@@ -1,3 +1,5 @@
+@use './mixins' as *;
+
 html {
   height: 100%;
 }
@@ -5,6 +7,7 @@ html {
 body {
   height: 100%;
   font-size: 1rem;
+  background-color: hsla(0, 0%, 0%);
 }
 
 a {
@@ -21,17 +24,9 @@ a {
 .body_text {
   font-size: var(--fs-M);
   font-weight: 500;
+  max-width: 60ch;
+
+  @include small-above {
+    line-height: 2;
+  }
 }
-
-//Swiper component style
-
-// .swiper {
-//   width: 100%;
-// }
-
-// .swiper * {
-// }
-
-// .swiper img {
-//   width: 100%;
-// }

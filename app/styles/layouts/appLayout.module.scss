@@ -1,3 +1,5 @@
+@use '../mixins' as *;
+
 .body {
   font-family: var(--font-montserrat);
   display: grid;
@@ -10,12 +12,14 @@
 .main {
   position: relative;
   padding-bottom: 2rem;
+  @include app-width-wrapper;
 }
 
 .bg_wrapper {
   position: absolute;
   z-index: -10;
   height: 100%;
+  width: 100%;
 
   & img {
     object-fit: cover;

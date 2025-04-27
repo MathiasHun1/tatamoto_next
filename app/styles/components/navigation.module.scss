@@ -1,3 +1,11 @@
+@use '../mixins' as *;
+
+.nav_mobile {
+  @include small-above {
+    display: none;
+  }
+}
+
 .menu_button {
   width: 26px;
   background-color: transparent;
@@ -47,4 +55,25 @@
 .list_wrapper__active {
   @extend .list_wrapper;
   transform: translateX(0%);
+}
+
+.nav_desktop {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  width: min-content;
+  display: none;
+
+  @include small-above {
+    display: flex;
+  }
+}
+
+.link_desktop {
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.active {
+  color: hsl(var(--clr-blue-800));
 }

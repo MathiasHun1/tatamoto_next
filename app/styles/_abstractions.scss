@@ -1,3 +1,5 @@
+@use './mixins' as *;
+
 :root {
   // COLORS
   --clr-blue-500: 225 73.1% 46.7%;
@@ -13,4 +15,9 @@
   --fs-M: calc(16.2rem / 16);
   --fs-S: calc(14rem / 16);
   --clr-text: rgb(var(--clr-white-200));
+
+  @include small-above {
+    --fs-S: calc(16rem / 16);
+    --fs-M: calc(18rem / 16);
+  }
 }

@@ -6,6 +6,8 @@
   text-align: center;
   display: grid;
   gap: 2rem;
+  max-width: 65rem;
+  margin-inline: auto;
 }
 
 .grid_cont {
@@ -37,6 +39,10 @@
   // place-content: center;
   justify-content: center;
   padding-top: 45%;
+
+  @include small-above {
+    padding-top: 12rem;
+  }
 }
 
 .card_outer_wrap {
@@ -66,24 +72,41 @@
 
 .stepper_left,
 .stepper_right {
+  width: 20px;
   position: absolute;
   bottom: 0;
   z-index: 1000;
   opacity: 0.5;
   cursor: pointer;
+
+  @include small-above {
+    width: 40px;
+
+    bottom: unset;
+    top: 50%;
+  }
 }
 
 .stepper_right {
   transform: translateY(120%) translateX(-20%);
   right: 0;
+
+  @include small-above {
+    transform: translateY(-50%) translateX(120%);
+  }
 }
 
 .stepper_left {
   left: 0;
   transform: translateY(120%) translateX(20%);
+
+  @include small-above {
+    transform: translateY(-50%) translateX(-120%);
+  }
 }
 
 .close_btn {
+  width: 20px;
   position: absolute;
   top: 0;
   right: 0;
@@ -91,4 +114,8 @@
   transform: translateY(-120%);
   cursor: pointer;
   opacity: 0.5;
+
+  @include small-above {
+    width: 40px;
+  }
 }

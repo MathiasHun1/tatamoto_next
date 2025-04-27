@@ -1,64 +1,40 @@
 'use client';
 
 import styles from '@/app/styles/components/navigation.module.scss';
-import Image from 'next/image';
-import menu from '@/public/images/bars-solid.svg';
-import close from '@/public/images/xmark-solid.svg';
-
 import Link from 'next/link';
-import { useState } from 'react';
+import { usePathname } from 'next/navigation';
+import clsx from 'clsx';
 
 const Navigation = () => {
-  const [isOpened, setIsOpened] = useState(false);
+  const path = usePathname();
 
   return (
-    <div className={styles.nav_container}>
-      <button
-        className={styles.menu_button}
-        onClick={() => setIsOpened(!isOpened)}
+    <nav className={styles.nav_desktop}>
+      <Link
+        href="/rolam"
+        className={clsx(styles.link_desktop, {
+          [styles.active]: path === '/rolam',
+        })}
       >
-        {!isOpened && <Image src={menu} alt="" width={40} height={40} />}
-        {isOpened && <Image src={close} alt="" width={40} height={40} />}
-      </button>
-
-      <div
-        className={`${
-          isOpened ? styles.list_wrapper__active : styles.list_wrapper
-        }`}
+        Rólam
+      </Link>
+      <Link
+        href="/galeria"
+        className={clsx(styles.link_desktop, {
+          [styles.active]: path === '/galeria',
+        })}
       >
-        <ul className={styles.nav_list}>
-          <li>
-            <Link
-              href="rolam"
-              className={styles.link}
-              onClick={() => setIsOpened(false)}
-            >
-              Rólam
-            </Link>
-          </li>
-
-          <li>
-            <Link
-              href="galeria"
-              className={styles.link}
-              onClick={() => setIsOpened(false)}
-            >
-              Galéria
-            </Link>
-          </li>
-
-          <li>
-            <Link
-              href="kapcsolat"
-              className={styles.link}
-              onClick={() => setIsOpened(false)}
-            >
-              Kapcsolat
-            </Link>
-          </li>
-        </ul>
-      </div>
-    </div>
+        Galéria
+      </Link>
+      <Link
+        href="/kapcsolat"
+        className={clsx(styles.link_desktop, {
+          [styles.active]: path === '/kapcsolat',
+        })}
+      >
+        Kapcsolat
+      </Link>
+    </nav>
   );
 };
 
