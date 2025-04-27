@@ -205,6 +205,7 @@ const ImageCarousel = ({
             <>
               <Swiper
                 modules={[Virtual, Navigation]}
+                initialSlide={activeIndex!}
                 spaceBetween={50}
                 slidesPerView={1}
                 virtual

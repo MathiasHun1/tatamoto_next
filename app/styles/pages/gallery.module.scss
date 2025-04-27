@@ -34,7 +34,9 @@
   inset: 0;
   background-color: hsla(0, 0%, 0%, 0.85);
   display: grid;
-  place-items: center;
+  // place-content: center;
+  justify-content: center;
+  padding-top: 45%;
 }
 
 .card_outer_wrap {
@@ -42,6 +44,7 @@
   width: min-content;
   width: 80vw;
   max-width: 650px;
+  height: fit-content;
 }
 
 .modal_card {
