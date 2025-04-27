@@ -1,6 +1,7 @@
 'use client';
 
 import styles from '@/app/styles/pages/gallery.module.scss';
+
 import muhely1 from '@/public/images/muhely-1.jpeg';
 import muhely2 from '@/public/images/muhely-2.jpeg';
 import muhely3 from '@/public/images/muhely-3.jpeg';
@@ -49,15 +50,19 @@ const motorAll = [
 ];
 
 import ImageCard from '../ui/imageCard';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { StaticImageData } from 'next/image';
 import Image from 'next/image';
 import closeSvg from '@/public/images/xmark-solid.svg';
+import nextBtn from '@/public/images/chevron-right-solid.svg';
+import prevBtn from '@/public/images/chevron-left-solid.svg';
 
-import { Virtual } from 'swiper/modules';
+import { Virtual, Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import type { Swiper as SwiperType } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/virtual';
+import 'swiper/css/navigation';
 
 const Gallery = () => {
   const [carouselOpen, setCarouselOpen] = useState(false);
@@ -155,6 +160,7 @@ const ImageCarousel = ({
   const [usedImgArray, setUsedImgArray] = useState<StaticImageData[] | null>(
     null
   );
+  const swiperRef = useRef<SwiperType | null>(null);
 
   useEffect(() => {
     setCurrentIndex(activeIndex);
@@ -171,51 +177,55 @@ const ImageCarousel = ({
 
   return (
     <div className={styles.modal_wrapper}>
-      <div className={styles.modal_card}>
-        {hasValidIndex && (
-          <>
-            <Image
-              src={closeSvg}
-              alt=""
-              width={50}
-              height={50}
-              className={styles.close_btn}
-              onClick={() => setCarouselOpen(false)}
-            />
-            <Swiper
-              modules={[Virtual]}
-              spaceBetween={50}
-              slidesPerView={1}
-              virtual
-            >
-              {usedImgArray.map((slideContent, index) => (
-                <SwiperSlide key={index} virtualIndex={index}>
-                  <Image
-                    src={slideContent}
-                    alt=""
-                    width={550}
-                    className={styles.picture}
-                  />
-                </SwiperSlide>
-              ))}
-            </Swiper>
-
-            {/* <Image
-              src={rightArrow}
-              alt=""
-              width={50}
-              className={styles.stepper_right}
-              onClick={stepRight}
-            />
-            <Image
-              src={leftArrow}
-              alt=""
-              width={50}
-              className={styles.stepper_left}
-              onClick={stepLeft}
-            /> */}
-          </>
-        )}
+      <div className={styles.card_outer_wrap}>
+        <Image
+          src={nextBtn}
+          alt=""
+          width={50}
+          className={styles.stepper_right}
+          onClick={() => swiperRef.current!.slideNext()}
+        />
+        <Image
+          src={prevBtn}
+          alt=""
+          width={50}
+          className={styles.stepper_left}
+          onClick={() => swiperRef.current!.slidePrev()}
+        />
+        <Image
+          src={closeSvg}
+          alt=""
+          width={50}
+          height={50}
+          className={styles.close_btn}
+          onClick={() => setCarouselOpen(false)}
+        />
+        <div className={styles.modal_card}>
+          {hasValidIndex && (
+            <>
+              <Swiper
+                modules={[Virtual, Navigation]}
+                spaceBetween={50}
+                slidesPerView={1}
+                virtual
+                onSwiper={(swiper) => {
+                  swiperRef.current = swiper;
+                }}
+              >
+                {usedImgArray.map((slideContent, index) => (
+                  <SwiperSlide key={index} virtualIndex={index}>
+                    <Image
+                      src={slideContent}
+                      alt=""
+                      width={650}
+                      className={styles.picture}
+                    />
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </>
+          )}
+        </div>
       </div>
     </div>
   );
