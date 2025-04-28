@@ -8,6 +8,9 @@
   gap: 2rem;
   max-width: 65rem;
   margin-inline: auto;
+
+  @include small-above {
+  }
 }
 
 .grid_cont {
@@ -15,6 +18,10 @@
   grid-template-columns: repeat(auto-fit, minmax(80px, 15vw));
   justify-content: center;
   gap: 5vw;
+
+  @include small-above {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 10vw));
+  }
 }
 
 .section_title {
@@ -26,6 +33,10 @@
   padding-block: 1rem;
   padding-bottom: 2rem;
   border-radius: 10px;
+
+  @include small-above {
+    padding-inline: 1rem;
+  }
 }
 
 .modal_wrapper {
@@ -36,7 +47,6 @@
   inset: 0;
   background-color: hsla(0, 0%, 0%, 0.85);
   display: grid;
-  // place-content: center;
   justify-content: center;
   padding-top: 45%;
 

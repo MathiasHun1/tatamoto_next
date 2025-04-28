@@ -2,10 +2,22 @@
 
 .wrapper {
   @include wrapper;
+  max-width: 40rem;
   padding-top: 2rem;
   display: grid;
   justify-items: center;
   gap: 4rem;
+  margin-inline: auto;
+}
+
+.login_cont {
+  display: flex;
+  justify-content: center;
+  margin-top: 6rem;
+
+  & label {
+    margin-right: 1rem;
+  }
 }
 
 .form {

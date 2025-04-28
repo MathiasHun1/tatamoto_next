@@ -30,11 +30,14 @@ const Page = () => {
           </span>{' '}
           Nálam nincs dömpingszerelés, cserébe igyekszem pontos, precíz munkát
           végezni. Behozod a motort előzetes egyeztetés alapján, elmondod hogy
-          mi a gondod vele, én felmérem, majd írok egy munkalapot amin a várható
-          költségek is szerepelnek, így nem ér meglepetés a számla elkészülte
-          után. A munkafolyamatokról igény szerint fotó vagy videó dokumentáció
-          készül. Ittléte alatt a motorod fedett helyen van. Köszönöm hogy
-          megtiszelsz a bizalmaddal!
+          mi a gondod vele, én felmérem, majd
+          <span className={styles.accent}>
+            {' '}
+            írok egy munkalapot amin a várható költségek is szerepelnek
+          </span>
+          , így nem ér meglepetés a számla elkészülte után. A munkafolyamatokról
+          igény szerint fotó vagy videó dokumentáció készül. Ittléte alatt a
+          motorod fedett helyen van. Köszönöm hogy megtiszelsz a bizalmaddal!
         </p>
         <p className={styles.thanks}></p>
       </div>

@@ -6,9 +6,10 @@ import React, { useState } from 'react';
 import AdminForm_openings from '@/app/ui/admin/adminform-openings';
 import AdminForm_promotion from '../ui/admin/adminform-promotions';
 import AdminForm_vacation from '../ui/admin/adminform-vacation';
+import axios from 'axios';
 
 const Admin = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [passText, setPassText] = useState('');
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [errorMessageText, setErrorMessageText] = useState('');
@@ -20,24 +21,14 @@ const Admin = () => {
 
   const handleLogin = async (e: React.SyntheticEvent) => {
     e.preventDefault();
-    // try {
-    //   const response = await loginService.login(passText);
-    //   const { token } = response;
-    //   window.localStorage.setItem('token', token);
-    //   loginService.setToken(token);
-    //   setIsLoggedIn(true);
-    // } catch (error) {
-    //   if (error.status === 401) {
-    //     setErrorMessageText('hibás jelszó');
-    //   } else {
-    //     setErrorMessageText('szerver probléma');
-    //   }
+    axios.post('/api/login', { password: passText }).then((response) => {
+      console.log(response);
 
-    //   setTimeout(() => {
-    //     setErrorMessageText('');
-    //   }, 3000);
-    // }
-    // setPassText('');
+      if (response.status === 200) {
+        setIsLoggedIn(true);
+      }
+    });
+
     return;
   };
 
@@ -49,18 +40,16 @@ const Admin = () => {
 
   if (!isLoggedIn) {
     return (
-      <div>
+      <div className={styles.login_cont}>
         <form onSubmit={handleLogin}>
-          <label>
-            Jelszó:
-            <input
-              type="password"
-              value={passText}
-              onChange={handlePassInputChange}
-              className="border-2 border-black px-2 dark:bg-slate-100"
-              id="password"
-            />
-          </label>
+          <label htmlFor="password">Jelszó:</label>
+          <input
+            type="password"
+            value={passText}
+            onChange={handlePassInputChange}
+            className=""
+            id="password"
+          />
           <button className="btn">OK</button>
         </form>
         {errorMessageText && (

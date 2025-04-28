@@ -10,6 +10,8 @@
   @include small-above {
     width: fit-content;
     margin-inline: auto;
+    padding-top: 8rem;
+    padding-bottom: 3rem;
   }
 }
 
@@ -18,7 +20,9 @@
 }
 
 .accent {
-  font-style: italic;
+  // font-style: italic;
+  color: white;
+  font-weight: 600;
 }
 
 .scooter_img {
