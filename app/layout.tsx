@@ -15,7 +15,21 @@ const montserrat = Montserrat({
   weight: ['400', '500', '700'],
 });
 
-export const metadata: Metadata = {};
+export const metadata: Metadata = {
+  title: {
+    template: '%s | TataMoto motorszerviz',
+    default: ' TataMoto motorszerviz',
+  },
+  description:
+    'Teljes körű motorkerékpár szervizelés Budapesten és környékén: javítás, karbantartás, alkatrész beszerzés. Minőségi munka, korrekt árak.',
+  openGraph: {
+    title: 'Motorkerékpár javítás Budapest',
+    description:
+      'Teljes körű motorkerékpár szervizelés Budapesten és környékén: javítás, karbantartás, alkatrész beszerzés. Minőségi munka, korrekt árak.',
+    url: 'https://www.tatamoto.hu',
+    locale: 'hu_HU',
+  },
+};
 
 export default function RootLayout({
   children,

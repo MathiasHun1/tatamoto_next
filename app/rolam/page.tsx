@@ -16,10 +16,7 @@ const Page = () => {
           szeretném.
         </p>
       </div>
-      {/* <p>
-        Ha gond van a motoroddal akkor keress meg valamelyik elérhetőségemen,
-        majd hozd be a műhelybe és megpróbálom orvosolni a hibát.
-      </p> */}
+
       <div>
         <h2 className="title">Mire számíthatsz nálam?</h2>
         <p className="body_text">

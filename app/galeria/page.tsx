@@ -100,7 +100,7 @@ const Gallery = () => {
 
   return (
     <div className={styles.wrapper}>
-      <div className={`${styles.garage_section} ${styles.section}`}>
+      <section className={`${styles.garage_section} ${styles.section}`}>
         <h2 className={`title ${styles.section_title}`}>A Műhely</h2>
         <div className={styles.grid_cont}>
           {muhelyAll.map((m, index) => (
@@ -113,9 +113,9 @@ const Gallery = () => {
             />
           ))}
         </div>
-      </div>
+      </section>
 
-      <div className={`${styles.garage_section} ${styles.section}`}>
+      <section className={`${styles.garage_section} ${styles.section}`}>
         <h2 className={`title ${styles.section_title}`}>Munkáim</h2>
         <div className={styles.grid_cont}>
           {motorAll.map((m, index) => (
@@ -128,7 +128,7 @@ const Gallery = () => {
             />
           ))}
         </div>
-      </div>
+      </section>
 
       {carouselOpen && (
         <ImageCarousel
