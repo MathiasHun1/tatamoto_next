@@ -43,7 +43,7 @@ const Page = () => {
         <p className="body_text">*** Robogót jelenleg nem vállalok!</p>
         <Image
           src={scooterImg}
-          alt=""
+          alt="áthúzott robogó ikon"
           width={80}
           className={styles.scooter_img}
         />

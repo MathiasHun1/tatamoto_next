@@ -4,8 +4,6 @@ export async function POST(request: NextRequest) {
   const body = await request.json();
   const { password } = body;
 
-  console.log(password);
-
   if (!password || password !== process.env.LOGINPASS) {
     return NextResponse.json(
       {

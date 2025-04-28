@@ -82,6 +82,10 @@
 
 .stepper_left,
 .stepper_right {
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0;
   width: 20px;
   position: absolute;
   bottom: 0;
@@ -116,6 +120,10 @@
 }
 
 .close_btn {
+  background: none;
+  padding: 0;
+  margin: 0;
+  border: none;
   width: 20px;
   position: absolute;
   top: 0;

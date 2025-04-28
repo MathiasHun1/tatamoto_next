@@ -6,7 +6,6 @@ export async function GET() {
   try {
     await connectToDb();
     const current = await Vacation.findOne({});
-    console.log(current);
 
     return NextResponse.json(current, { status: 200 });
   } catch (error) {

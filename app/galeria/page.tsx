@@ -71,15 +71,6 @@ const Gallery = () => {
     'garage' | 'references' | null
   >(null);
 
-  useEffect(() => {
-    console.log(openedBlock);
-    console.log(openedBlock);
-  }, [openedBlock]);
-
-  useEffect(() => {
-    console.log(activeIndex);
-  }, [activeIndex]);
-
   const onClick = (e: React.SyntheticEvent) => {
     const target = e.currentTarget as HTMLDivElement;
     const index = target.dataset.index;
@@ -168,38 +159,40 @@ const ImageCarousel = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  useEffect(() => {
-    console.log(currentIndex);
-  }, [currentIndex]);
-
   const hasValidIndex =
     (usedImgArray && currentIndex) || (usedImgArray && currentIndex === 0);
 
   return (
     <div className={styles.modal_wrapper}>
       <div className={styles.card_outer_wrap}>
-        <Image
-          src={nextBtn}
-          alt=""
-          width={50}
+        <button
           className={styles.stepper_right}
           onClick={() => swiperRef.current!.slideNext()}
-        />
-        <Image
-          src={prevBtn}
-          alt=""
-          width={50}
+        >
+          <Image
+            src={nextBtn}
+            alt="galéria léptetése jobbra"
+            width={50}
+            height={50}
+          />
+        </button>
+        <button
           className={styles.stepper_left}
           onClick={() => swiperRef.current!.slidePrev()}
-        />
-        <Image
-          src={closeSvg}
-          alt=""
-          width={50}
-          height={50}
+        >
+          <Image
+            src={prevBtn}
+            alt="galéria léptetése balra"
+            width={50}
+            height={50}
+          />
+        </button>
+        <button
           className={styles.close_btn}
           onClick={() => setCarouselOpen(false)}
-        />
+        >
+          <Image src={closeSvg} alt="" width={50} height={50} />
+        </button>
         <div className={styles.modal_card}>
           {hasValidIndex && (
             <>
@@ -217,8 +210,9 @@ const ImageCarousel = ({
                   <SwiperSlide key={index} virtualIndex={index}>
                     <Image
                       src={slideContent}
-                      alt=""
+                      alt="motor szerelés közben, kép a galériából"
                       width={650}
+                      height={650}
                       className={styles.picture}
                     />
                   </SwiperSlide>
