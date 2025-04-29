@@ -1,5 +1,7 @@
 @mixin wrapper {
   padding-inline: 1rem;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
 }
 
 @mixin app-width-wrapper {
