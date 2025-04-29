@@ -6,17 +6,22 @@ import Image from 'next/image';
 
 const Page = () => {
   return (
-    <div className={styles.wrapper}>
-      <div>
-        <h1 className="title">Üdvözöllek az oldalamon!</h1>
-        <p className="body_text">
-          Ha már eddig eljutottál akkor jó helyen jársz, amennyiben a motorodat
-          szeretnéd javíttatni, szervizeltetni. Jómagam is aktívan motorozok, és
-          tudom hogy mennyire bosszantó, ha a technika nem úgy működik, ahogy
-          szeretném.
-        </p>
+    <div className={styles.page}>
+      <div className={styles.top_section}>
+        <h1>Ki volnék én?</h1>
       </div>
 
+      <article className={styles.article_section}>
+        <h1 className="title">Üdvözöllek az oldalamon!</h1>
+        <p className="body_text">
+          {/* Ha már eddig eljutottál akkor jó helyen jársz, amennyiben a motorodat
+          szeretnéd javíttatni, szervizeltetni. */}{' '}
+          Jómagam is egy aktyv motoros vagyok, és tudom hogy mennyire bosszantó,
+          ha a technika nem úgy működik, ahogy szeretném.
+        </p>
+      </article>
+
+      {/*
       <div>
         <h2 className="title">Mire számíthatsz nálam?</h2>
         <p className="body_text">
@@ -37,9 +42,9 @@ const Page = () => {
           motorod fedett helyen van. Köszönöm hogy megtiszelsz a bizalmaddal!
         </p>
         <p className={styles.thanks}></p>
-      </div>
+      </div> */}
 
-      <div>
+      {/* <div>
         <p className="body_text">*** Robogót jelenleg nem vállalok!</p>
         <Image
           src={scooterImg}
@@ -50,7 +55,7 @@ const Page = () => {
       </div>
       <footer className={styles.footer}>
         <Decor />
-      </footer>
+      </footer> */}
     </div>
   );
 };

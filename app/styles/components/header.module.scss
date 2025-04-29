@@ -9,8 +9,12 @@
   justify-content: space-between;
   align-items: center;
   overflow: hidden;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
-s .logo_wrapper {
+
+.logo_wrapper {
   width: 80px;
 }
 
@@ -18,7 +22,7 @@ s .logo_wrapper {
   background-color: hsla(var(--clr-blue-500));
   padding-left: 1rem;
   padding-right: 0.5rem;
-  position: relative;
+  position: sticky;
   z-index: 10;
 
   &::after {
