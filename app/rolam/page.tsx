@@ -1,8 +1,8 @@
 import styles from '@/app/styles/pages/about.module.scss';
-import Decor from '../ui/decor';
-import scooterImg from '@/public/images/scooter.jpg';
+// import Decor from '../ui/decor';
+// import scooterImg from '@/public/images/scooter.jpg';
 
-import Image from 'next/image';
+// import Image from 'next/image';
 
 const Page = () => {
   return (
