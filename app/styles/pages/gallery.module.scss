@@ -8,6 +8,7 @@
   gap: 2rem;
   max-width: 65rem;
   margin-inline: auto;
+  background-color: hsl(var(--clr-grey-800));
 
   @include small-above {
   }

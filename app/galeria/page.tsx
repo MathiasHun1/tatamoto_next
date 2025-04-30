@@ -26,6 +26,8 @@ import motor16 from '@/public/images/motor-16.jpeg';
 import motor17 from '@/public/images/motor-17.jpeg';
 import motor18 from '@/public/images/motor-18.jpeg';
 import motor19 from '@/public/images/motor-19.jpeg';
+import motor20 from '@/public/images/motor-20.jpg';
+import motor21 from '@/public/images/motor-21.jpg';
 
 const muhelyAll = [muhely1, muhely2, muhely3, muhely4, muhely5];
 const motorAll = [
@@ -47,6 +49,8 @@ const motorAll = [
   motor17,
   motor18,
   motor19,
+  motor20,
+  motor21,
 ];
 
 import ImageCard from '../ui/imageCard';
@@ -107,7 +111,7 @@ const Gallery = () => {
       </section>
 
       <section className={`${styles.garage_section} ${styles.section}`}>
-        <h2 className={`title ${styles.section_title}`}>Munkáim</h2>
+        <h2 className={`title ${styles.section_title}`}>Néhány Munkám</h2>
         <div className={styles.grid_cont}>
           {motorAll.map((m, index) => (
             <ImageCard
