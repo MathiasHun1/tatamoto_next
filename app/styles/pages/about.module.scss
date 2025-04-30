@@ -1,4 +1,5 @@
 @use '../mixins' as *;
+@use '../abstractions' as *;
 
 .page {
   height: 100%;
@@ -63,19 +64,75 @@
   font-size: var(--fs-L);
 }
 
-.list_services {
+.list {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
 .list_item {
+  width: fit-content;
   display: flex;
   align-items: center;
   gap: 1rem;
   margin-bottom: 0.5rem;
 }
 
+.reviews {
+  @include wrapper;
+  background-color: var(--clr-text);
+  height: 300px;
+  color: hsl(var(--clr-grey-800));
+}
+
+.partners {
+  @include wrapper;
+}
+
+.partners_list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.partners_list li {
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.02);
+  }
+}
+
+.section_title {
+  font-size: var(--fs-L);
+  text-align: center;
+}
+
+.hyper_moto {
+  background-color: white;
+  width: fit-content;
+  padding: 6px;
+  margin-bottom: 3rem;
+}
+
+.guest_house {
+  background-color: white;
+  color: black;
+  width: fit-content;
+  padding-inline: 4px;
+  padding-block: 2px;
+  & a {
+    text-decoration: none;
+  }
+
+  .logo_text {
+    display: inline-block;
+    text-align: center;
+    font-family: var(--font-dancing-script);
+    font-size: 20px;
+  }
+}
 // etc
 .text:last-of-type {
   margin-bottom: 0.5rem;

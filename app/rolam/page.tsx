@@ -1,5 +1,7 @@
 import styles from '@/app/styles/pages/about.module.scss';
 import checkMark from '@/public/images/check-solid.svg';
+import motorRoadtech from '@/public/images/partners/motorroadtech-logo.png';
+import hyperMoto from '@/public/images/partners/hypermoto-logo.png';
 
 import Image from 'next/image';
 // import Decor from '../ui/decor';
@@ -54,7 +56,7 @@ const Page = () => {
 
       <div className={styles.content_section}>
         <h2 className={styles.title_services}>Néhány szolgáltatásom:</h2>
-        <ul className={styles.list_services}>
+        <ul className={styles.list}>
           <li className={styles.list_item}>
             <Image src={checkMark} alt="checkmark" width={18} height={18} />
             időszakos szervizek
@@ -74,6 +76,44 @@ const Page = () => {
           <li className={styles.list_item}>
             <Image src={checkMark} alt="checkmark" width={18} height={18} />
             motorfelújítás
+          </li>
+        </ul>
+      </div>
+
+      <div className={styles.reviews}>
+        <h2 className={styles.section_title}>Rólam mondták...</h2>
+      </div>
+
+      <div className={styles.partners}>
+        <h2 className={styles.section_title}>Partnereim</h2>
+        <ul className={`${styles.partners_list} ${styles.list}`}>
+          <li className={styles.list_item}>
+            <a href="https://www.motorroadtech.hu/" target="_blank">
+              <Image
+                src={motorRoadtech}
+                alt="MotorRoadtech cég-logó"
+                width={150}
+              />
+            </a>
+          </li>
+
+          <li className={`${styles.list_item} ${styles.hyper_moto}`}>
+            <a href="https://hyper-moto24.hu/" target="_blank">
+              <Image src={hyperMoto} alt="Hypermoto cég-logó" width={230} />
+            </a>
+          </li>
+
+          <li className={`${styles.list_item} ${styles.guest_house}`}>
+            <a
+              href="https://www.borostyanvendeghaz-matraderecske.hu/"
+              target="_blank"
+            >
+              <span className={styles.logo_text}>
+                &nbsp;🌿&nbsp;Bororstyán&nbsp;Vendégház&nbsp;🌿
+                <br />
+                Mátraderecske
+              </span>
+            </a>
           </li>
         </ul>
       </div>

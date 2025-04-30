@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Montserrat } from 'next/font/google';
+import { Montserrat, Dancing_Script } from 'next/font/google';
 import './app.scss';
 import styles from '@/app/styles/layouts/appLayout.module.scss';
 
@@ -9,6 +9,12 @@ import Vacation from './ui/vacation';
 
 const montserrat = Montserrat({
   variable: '--font-montserrat',
+  subsets: ['latin'],
+  weight: ['400', '500', '700'],
+});
+
+const dancingScript = Dancing_Script({
+  variable: '--font-dancing-script',
   subsets: ['latin'],
   weight: ['400', '500', '700'],
 });
@@ -39,7 +45,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="hu">
-      <body className={`${styles.body} ${montserrat.variable}`}>
+      <body
+        className={`${styles.body} ${montserrat.variable} ${dancingScript.variable}`}
+      >
         <Header />
 
         <main className={styles.main}>{children}</main>
