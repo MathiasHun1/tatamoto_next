@@ -63,6 +63,7 @@
   align-items: center;
   width: min-content;
   display: none;
+  font-size: var(--fs-L);
 
   @include small-above {
     display: flex;

@@ -11,6 +11,8 @@
   background-color: hsl(var(--clr-grey-800));
 
   @include small-above {
+    max-width: unset;
+    padding-inline: 7vw;
   }
 }
 
@@ -36,7 +38,7 @@
   border-radius: 10px;
 
   @include small-above {
-    padding-inline: 1rem;
+    padding-inline: 3rem;
   }
 }
 
