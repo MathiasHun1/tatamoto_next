@@ -1,7 +1,7 @@
 @use '../mixins' as *;
 
 .app {
-  height: 100%;
+  height: 100dvh;
   display: grid;
   place-content: center;
   background-image: linear-gradient(hsla(240, 15%, 15%, 0.8)),

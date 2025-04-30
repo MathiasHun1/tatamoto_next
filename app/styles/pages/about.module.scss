@@ -13,7 +13,7 @@
 .top_section {
   @include wrapper;
   padding-top: 5rem;
-  height: 60dvh;
+  height: 60vh;
   background-image: linear-gradient(hsla(240, 15%, 15%, 0.7)),
     url('/images/tatamoto_self.jpg');
 
