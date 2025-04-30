@@ -3,6 +3,7 @@
 
 .page {
   height: 100%;
+  overflow-x: hidden;
 
   @include small-above {
     width: fit-content;
@@ -80,7 +81,8 @@
 
 .reviews {
   @include wrapper;
-  background-color: var(--clr-text);
+  padding-top: 0;
+  background-color: hsla(var(--clr-grey-800));
   height: 300px;
   color: hsl(var(--clr-grey-800));
 }
@@ -107,6 +109,7 @@
 .section_title {
   font-size: var(--fs-L);
   text-align: center;
+  margin-bottom: 2rem;
 }
 
 .hyper_moto {

@@ -3,8 +3,8 @@
 import styles from '@/app/styles/components/popoups.module.scss';
 import { useEffect, useState } from 'react';
 import promotionService from '@/services/promotionService';
-import closeSVG from '@/public/images/xmark-solid.svg';
-import attentionSVG from '@/public/images/loudspeaker-309554.svg';
+import closeSVG from '@/public/images/icons/xmark-solid.svg';
+import attentionSVG from '@/public/images/icons/loudspeaker-309554.svg';
 import { motion } from 'framer-motion';
 
 import Image from 'next/image';

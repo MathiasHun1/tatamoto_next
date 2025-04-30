@@ -53,9 +53,9 @@ import ImageCard from '../ui/imageCard';
 import React, { useEffect, useRef, useState } from 'react';
 import { StaticImageData } from 'next/image';
 import Image from 'next/image';
-import closeSvg from '@/public/images/xmark-solid.svg';
-import nextBtn from '@/public/images/chevron-right-solid.svg';
-import prevBtn from '@/public/images/chevron-left-solid.svg';
+import closeSvg from '@/public/images/icons/xmark-solid.svg';
+import nextBtn from '@/public/images/icons/chevron-right-solid.svg';
+import prevBtn from '@/public/images/icons/chevron-left-solid.svg';
 
 import { Virtual, Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';

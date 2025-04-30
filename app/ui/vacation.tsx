@@ -2,7 +2,7 @@
 
 import styles from '@/app/styles/components/popoups.module.scss';
 import { useEffect, useState } from 'react';
-import closeSVG from '@/public/images/xmark-solid.svg';
+import closeSVG from '@/public/images/icons/xmark-solid.svg';
 import vacationImg from '@/public/images/vacation.jpg';
 import Image from 'next/image';
 import vacationService from '@/services/vacationService';

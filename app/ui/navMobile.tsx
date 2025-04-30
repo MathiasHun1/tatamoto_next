@@ -2,8 +2,8 @@
 
 import styles from '@/app/styles/components/navigation.module.scss';
 import Image from 'next/image';
-import menu from '@/public/images/bars-solid.svg';
-import close from '@/public/images/xmark-solid.svg';
+import menu from '@/public/images/icons/bars-solid.svg';
+import close from '@/public/images/icons/xmark-solid.svg';
 
 import Link from 'next/link';
 import { useState } from 'react';

@@ -8,6 +8,7 @@ body {
   height: 100%;
   font-size: 1rem;
   background-color: hsla(0, 0%, 0%);
+  overflow-x: hidden;
 }
 
 a {
@@ -29,4 +30,36 @@ a {
   @include small-above {
     line-height: 2;
   }
+}
+
+// embedded google-carousel styles overrides
+ul.slick-dots {
+  display: none !important;
+}
+
+.carousel {
+  padding: 0 !important;
+  width: 300px;
+  position: relative !important;
+}
+
+.carousel_btn {
+  // display: none !important;
+  background-color: transparent !important;
+  color: white !important;
+  border: none !important;
+}
+
+.carousel_btn_left {
+  position: absolute !important;
+  z-index: 10 !important;
+  top: 25px !important;
+  transform: translateX(-85%) !important;
+}
+
+.carousel_btn_right {
+  position: absolute !important;
+  z-index: 10 !important;
+  top: 25px !important;
+  transform: translateX(85%) !important;
 }

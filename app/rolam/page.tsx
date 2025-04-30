@@ -1,13 +1,11 @@
 import styles from '@/app/styles/pages/about.module.scss';
-import checkMark from '@/public/images/check-solid.svg';
+import checkMark from '@/public/images/icons/check-solid.svg';
 import motorRoadtech from '@/public/images/partners/motorroadtech-logo.png';
 import hyperMoto from '@/public/images/partners/hypermoto-logo.png';
 
 import Image from 'next/image';
-// import Decor from '../ui/decor';
-// import scooterImg from '@/public/images/scooter.jpg';
-
-// import Image from 'next/image';
+import Footer from '../ui/footer';
+import Reviews from '../ui/reviewsWrapper';
 
 const Page = () => {
   return (
@@ -82,6 +80,7 @@ const Page = () => {
 
       <div className={styles.reviews}>
         <h2 className={styles.section_title}>Rólam mondták...</h2>
+        <Reviews />
       </div>
 
       <div className={styles.partners}>
@@ -118,18 +117,7 @@ const Page = () => {
         </ul>
       </div>
 
-      {/* <div>
-        <p className="body_text">*** Robogót jelenleg nem vállalok!</p>
-        <Image
-          src={scooterImg}
-          alt="áthúzott robogó ikon"
-          width={80}
-          className={styles.scooter_img}
-        />
-      </div>
-      <footer className={styles.footer}>
-        <Decor />
-      </footer> */}
+      <Footer />
     </div>
   );
 };
