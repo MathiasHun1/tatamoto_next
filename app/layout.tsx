@@ -50,7 +50,7 @@ export default function RootLayout({
       >
         <Header />
 
-        <main className={styles.main}>{children}</main>
+        {/* <main className={styles.main}>{children}</main> */}
 
         <Promotion />
         <Vacation />
