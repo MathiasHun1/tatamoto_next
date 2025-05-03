@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 const baseURL = '/api/openings/';
 import loginService from './loginService';
 
@@ -16,7 +16,7 @@ const updateDay = async ({
   day: string;
   open: string | null;
   close: string | null;
-}): Promise<DayResponse> => {
+}): Promise<DayResponse | undefined> => {
   try {
     const response = await axios.put(
       `${baseURL}/${day}`,
@@ -25,7 +25,11 @@ const updateDay = async ({
     );
     return response.data;
   } catch (error) {
-    throw error;
+    if (error instanceof AxiosError) {
+      console.error(error.response?.status);
+      console.error(error.response?.data);
+    }
+    console.error(error);
   }
 };
 

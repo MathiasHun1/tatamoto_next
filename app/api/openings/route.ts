@@ -7,7 +7,8 @@ export async function GET() {
     await connectToDb();
     const days = await Day.find({});
     return NextResponse.json(days, { status: 200 });
-  } catch (err) {
-    console.log(err);
+  } catch (error) {
+    console.error(error);
+    return NextResponse.json({ error }, { status: 500 });
   }
 }
