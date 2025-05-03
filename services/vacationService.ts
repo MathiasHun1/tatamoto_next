@@ -1,4 +1,5 @@
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
+import loginService from './loginService';
 
 const baseURL = '/api/vacations';
 
@@ -18,10 +19,17 @@ type Credentials = {
 
 const setVacation = async (credentials: Credentials) => {
   try {
-    const response = await axios.post(baseURL, credentials);
+    const response = await axios.post(
+      baseURL,
+      credentials,
+      loginService.setHeader()
+    );
     return response.data;
   } catch (error) {
-    throw error;
+    if (error instanceof AxiosError) {
+      console.error(error.response?.status);
+      console.error(error.response?.data);
+    }
   }
 };
 

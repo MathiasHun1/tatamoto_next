@@ -2,11 +2,11 @@
 
 import styles from '@/app/styles/pages/admin.module.scss';
 import React, { useState } from 'react';
-// import loginService from '../../services/login';
+import loginService from '@/services/loginService';
+
 import AdminForm_openings from '@/app/ui/admin/adminform-openings';
 import AdminForm_promotion from '../ui/admin/adminform-promotions';
 import AdminForm_vacation from '../ui/admin/adminform-vacation';
-import axios from 'axios';
 
 const Admin = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -21,15 +21,13 @@ const Admin = () => {
 
   const handleLogin = async (e: React.SyntheticEvent) => {
     e.preventDefault();
-    axios.post('/api/login', { password: passText }).then((response) => {
-      console.log(response);
 
-      if (response.status === 200) {
-        setIsLoggedIn(true);
-      }
-    });
-
-    return;
+    try {
+      await loginService.login(passText);
+      setIsLoggedIn(true);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const logOut = () => {

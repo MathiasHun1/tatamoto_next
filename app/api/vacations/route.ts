@@ -1,6 +1,8 @@
 import connectToDb from '@/lib/mongodb';
 import Vacation from '@/models/Vacation';
 import { NextResponse } from 'next/server';
+import { getTokenFrom } from '@/app/utils/helpers';
+import jwt from 'jsonwebtoken';
 
 export async function GET() {
   try {
@@ -22,7 +24,17 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: 'missing credentials' }, { status: 400 });
   }
 
+  const token = getTokenFrom(request);
+
+  if (!token) {
+    return NextResponse.json(
+      { error: 'missing or invalid token' },
+      { status: 401 }
+    );
+  }
+
   try {
+    jwt.verify(token, process.env.SECRET!);
     await connectToDb();
 
     await Vacation.deleteMany({});
@@ -31,6 +43,7 @@ export async function POST(request: Request) {
 
     return NextResponse.json(result, { status: 201 });
   } catch (error) {
-    console.log(error);
+    console.error(error);
+    return NextResponse.json({ error }, { status: 500 });
   }
 }

@@ -6,25 +6,25 @@ export async function PUT(
   request: NextRequest,
   { params }: { params: Promise<{ openingday: string }> }
 ) {
+  const body = await request.json();
+  const { open, close } = body;
+  if (open !== null && !open) {
+    return NextResponse.json(
+      { error: 'Invalid or missing properties' },
+      { status: 400 }
+    );
+  }
+
+  if (close !== null && !close) {
+    return NextResponse.json(
+      { error: 'Invalid or missing properties' },
+      { status: 400 }
+    );
+  }
+
   try {
     await connectToDb();
     const { openingday } = await params;
-    const body = await request.json();
-    const { open, close } = body;
-
-    if (open !== null && !open) {
-      return NextResponse.json(
-        { error: 'Invalid or missing properties' },
-        { status: 400 }
-      );
-    }
-
-    if (close !== null && !close) {
-      return NextResponse.json(
-        { error: 'Invalid or missing properties' },
-        { status: 400 }
-      );
-    }
 
     const updatedDay = await Day.findOneAndUpdate(
       { day: openingday },

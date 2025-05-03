@@ -1,5 +1,6 @@
 import axios from 'axios';
 const baseURL = '/api/openings/';
+import loginService from './loginService';
 
 type DayResponse = {
   day: string;
@@ -17,7 +18,11 @@ const updateDay = async ({
   close: string | null;
 }): Promise<DayResponse> => {
   try {
-    const response = await axios.put(`${baseURL}/${day}`, { open, close });
+    const response = await axios.put(
+      `${baseURL}/${day}`,
+      { open, close },
+      loginService.setHeader()
+    );
     return response.data;
   } catch (error) {
     throw error;

@@ -36,3 +36,20 @@ export const transformOpening = (open: string | null, close: string | null) => {
     return `${open}-${close}`;
   }
 };
+
+export const getTokenFrom = (request: Request) => {
+  let token;
+  try {
+    const raw = request.headers.get('authorization');
+    if (raw && raw.startsWith('Bearer ')) {
+      token = raw.replace('Bearer ', '');
+    } else {
+      token = null;
+    }
+  } catch (error) {
+    if (error) {
+      token = null;
+    }
+  }
+  return token;
+};
