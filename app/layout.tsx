@@ -33,6 +33,7 @@ export const metadata: Metadata = {
     url: 'https://www.tatamoto.hu',
     locale: 'hu_HU',
   },
+
   icons: {
     icon: '/images/tatamoto-fekete.svg',
   },

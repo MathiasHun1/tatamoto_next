@@ -24,6 +24,7 @@
 
 .content_section {
   @include wrapper;
+  text-align: justify;
   display: flex;
   flex-direction: column;
   gap: 2rem;
