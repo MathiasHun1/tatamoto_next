@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   },
 
   icons: {
-    icon: '/images/tatamoto-fekete.svg',
+    icon: '/images/tatamoto-icon.ico',
   },
 };
 
@@ -46,9 +46,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="hu">
-      <body
-        className={`${styles.body} ${montserrat.variable} ${dancingScript.variable}`}
-      >
+      <body className={`${styles.body} ${montserrat.variable} ${dancingScript.variable}`}>
         <Header />
 
         <main className={styles.main}>{children}</main>
